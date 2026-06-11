@@ -362,6 +362,55 @@ export default function DigitalResume() {
   };
 
   useEffect(() => {
+    const img = new Image();
+    img.src = profileImageSrc;
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const size = 128; // standard favicon size
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      if (ctx) {
+        // Draw circular clip
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        ctx.clip();
+        
+        // Draw and crop image to fit
+        const imgWidth = img.width;
+        const imgHeight = img.height;
+        const imgRatio = imgWidth / imgHeight;
+        let drawWidth = size;
+        let drawHeight = size;
+        let offsetX = 0;
+        let offsetY = 0;
+        
+        if (imgWidth > imgHeight) {
+          // Landscape
+          drawWidth = size * imgRatio;
+          offsetX = -(drawWidth - size) / 2;
+        } else {
+          // Portrait
+          drawHeight = size / imgRatio;
+          offsetY = -(drawHeight - size) / 2;
+        }
+        
+        ctx.drawImage(img, offsetX, offsetY, drawWidth, drawHeight);
+        
+        // Update favicon link
+        let link = document.querySelector("link[rel~='icon']");
+        if (!link) {
+          link = document.createElement('link');
+          link.rel = 'icon';
+          document.getElementsByTagName('head')[0].appendChild(link);
+        }
+        link.type = 'image/png';
+        link.href = canvas.toDataURL('image/png');
+      }
+    };
+  }, []);
+
+  useEffect(() => {
     const wrapper = document.getElementById('scroll-wrapper');
     const observer = new IntersectionObserver(
       (entries) => {
