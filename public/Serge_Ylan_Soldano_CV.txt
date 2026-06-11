@@ -1,0 +1,41 @@
+SERGE YLAN M. SOLDANO
+INFORMATION TECHNOLOGY STUDENT & DEVELOPER
+
+Contact
+Email: soldanosy@gmail.com
+Phone: +63 932 331 3003
+Location: Cebu City, Philippines
+GitHub: github.com/YlanDainne
+
+Personal Details
+Birthdate: May 10, 2005
+Age: 21
+Gender: Male
+
+Education
+Cebu Institute of Technology University
+College — Bachelor of Science in Information Technology
+
+Cebu Institute of Technology University
+Senior High School — Science, Technology, Engineering & Mathematics (STEM)
+
+Cebu Institute of Technology University
+Junior High School — High School Diploma
+
+Pardo Elementary School
+Elementary — Elementary Diploma
+
+Technical Skills
+Frontend Development: React.js, JavaScript (ES6+), Tailwind CSS, HTML5 & CSS3
+Backend & Databases: Java, Spring Boot, MySQL, RESTful APIs
+Tools & Frameworks: Git & GitHub, Figma (UI/UX Prototyping), Postman
+
+Key Projects
+Roomly
+Full-Stack Developer & UI/UX Designer
+Developed a centralized web application designed to assist students and young professionals searching for rental properties. Engineered a dynamic proximity feature allowing users to screen listings by selecting a specific school and configuring their preferred travel distance.
+
+SportsManagement
+Academic / Personal
+Full-Stack Developer
+Developed a comprehensive sports management web platform engineered to streamline administrative workflows for athletic coaches. Programmed core tracking modules enabling coaches to log player attendance records, log total games played per season, and maintain in-depth player statistics.
