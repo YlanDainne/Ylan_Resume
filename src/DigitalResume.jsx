@@ -136,11 +136,11 @@ function Interactive3DCard({ imageSrc, altText }) {
 
   return (
     <div 
-      className="relative flex items-center justify-center w-full h-full select-none pt-24 pb-8 perspective-1200"
+      className="relative flex items-center justify-center w-full h-full select-none pt-6 pb-6 sm:pt-24 sm:pb-8 perspective-1200"
     >
       {/* Lanyard Strap */}
       <div 
-        className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-4 bg-zinc-800 h-[340px] z-0 overflow-hidden flex flex-col items-center justify-end shadow-[inset_0_0_6px_rgba(0,0,0,0.6)]"
+        className="absolute top-[-250px] left-1/2 -translate-x-1/2 w-4 bg-zinc-800 h-[340px] z-0 overflow-hidden hidden sm:flex flex-col items-center justify-end shadow-[inset_0_0_6px_rgba(0,0,0,0.6)]"
         style={{
           transform: isHovered 
             ? `rotateY(${rotate.y * 0.3}deg) rotateX(${rotate.x * 0.3}deg)`
@@ -156,7 +156,7 @@ function Interactive3DCard({ imageSrc, altText }) {
 
       {/* Metal clip */}
       <div 
-        className="absolute top-[85px] left-1/2 -translate-x-1/2 w-4 h-6 bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-800 rounded-sm border border-zinc-700 shadow-[0_4px_8px_rgba(0,0,0,0.3)] z-10 flex items-center justify-center"
+        className="absolute top-[85px] left-1/2 -translate-x-1/2 w-4 h-6 bg-gradient-to-b from-zinc-700 via-zinc-600 to-zinc-800 rounded-sm border border-zinc-700 shadow-[0_4px_8px_rgba(0,0,0,0.3)] z-10 hidden sm:flex items-center justify-center"
         style={{
           transform: isHovered 
             ? `rotateY(${rotate.y * 0.6}deg) rotateX(${rotate.x * 0.6}deg)`
@@ -170,7 +170,7 @@ function Interactive3DCard({ imageSrc, altText }) {
 
       {/* Ring connector */}
       <div 
-        className="absolute top-[103px] left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border-2 border-zinc-700 bg-transparent shadow-[0_2px_4px_rgba(0,0,0,0.2)] z-10"
+        className="absolute top-[103px] left-1/2 -translate-x-1/2 w-7 h-7 rounded-full border-2 border-zinc-700 bg-transparent shadow-[0_2px_4px_rgba(0,0,0,0.2)] z-10 hidden sm:block"
         style={{
           transform: isHovered 
             ? `rotateY(${rotate.y * 0.8}deg) rotateX(${rotate.x * 0.8}deg) translateZ(5px)`
@@ -182,7 +182,7 @@ function Interactive3DCard({ imageSrc, altText }) {
 
       {/* Tilted Card */}
       <div
-        className="relative z-20 transition-all duration-300 ease-out cursor-pointer mt-12 preserve-3d"
+        className="relative z-20 transition-all duration-300 ease-out cursor-pointer mt-4 sm:mt-12 preserve-3d"
         onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -264,8 +264,8 @@ function TopIslandNav({ activeSection }) {
         </a>
       </div>
 
-      {/* Floating Links Top-Right */}
-      <div className="fixed right-4 sm:right-8 top-4 z-50">
+      {/* Floating Links Top-Center/Right */}
+      <div className="fixed left-1/2 -translate-x-1/2 sm:left-auto sm:translate-x-0 sm:right-8 top-4 z-50 w-auto max-w-[calc(100vw-2rem)]">
         <nav className="flex items-center gap-0.5 rounded-full border border-zinc-800/80 bg-zinc-950/75 p-1 shadow-lg backdrop-blur-xl">
           {navItems.map((item) => {
             const isActive = activeSection === item.href.slice(1);
@@ -273,7 +273,7 @@ function TopIslandNav({ activeSection }) {
               <a
                 key={item.label}
                 href={item.href}
-                className={`rounded-full px-3 py-1.5 text-xs font-medium transition-all duration-300 ${
+                className={`rounded-full px-2.5 sm:px-3 py-1.5 text-[11px] sm:text-xs font-medium transition-all duration-300 ${
                   isActive 
                     ? 'bg-zinc-800 text-white font-semibold shadow-inner' 
                     : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-900/20'
@@ -476,7 +476,7 @@ export default function DigitalResume() {
   }, [githubUsername]);
 
   return (
-    <main className="h-screen w-screen overflow-hidden bg-[#090909] text-zinc-100 font-sans relative">
+    <main className="h-screen h-[100dvh] w-screen overflow-hidden bg-[#090909] text-zinc-100 font-sans relative">
       
       {/* Parallax Background Grid */}
       <div 
@@ -509,17 +509,17 @@ export default function DigitalResume() {
       <div 
         id="scroll-wrapper"
         onScroll={handleScroll}
-        className="h-screen w-screen overflow-y-auto snap-y snap-mandatory scroll-smooth relative z-10"
+        className="h-screen h-[100dvh] w-screen overflow-y-auto md:snap-y md:snap-mandatory scroll-smooth relative z-10"
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* HOME SECTION */}
           <section 
             id="home" 
-            className="h-screen w-full flex items-center pt-28 pb-16 snap-start snap-always relative"
+            className="min-h-screen md:h-screen md:h-[100dvh] w-full flex items-center pt-24 pb-12 md:pt-28 md:pb-16 md:snap-start md:snap-always relative"
           >
-            <div className="grid w-full gap-8 items-center lg:grid-cols-[1.2fr_0.8fr]">
-              <div className="relative flex flex-col justify-center space-y-6">
+            <div className="grid w-full gap-8 items-center lg:grid-cols-[1.2fr_0.8fr] pt-12 lg:pt-0">
+              <div className="relative flex flex-col justify-center space-y-6 pt-4 lg:pt-0">
                 
                 {/* Available status */}
                 <div className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.25em] text-zinc-400">
@@ -589,10 +589,10 @@ export default function DigitalResume() {
           {/* ABOUT SECTION */}
           <section 
             id="about" 
-            className="h-screen w-full flex flex-col justify-center py-24 snap-start snap-always relative"
+            className="min-h-screen md:h-screen md:h-[100dvh] w-full flex flex-col justify-center py-16 md:py-24 md:snap-start md:snap-always relative"
           >
-            <div className="grid w-full gap-8 items-center lg:grid-cols-[1.2fr_0.8fr]">
-              <div className="flex flex-col gap-6 pt-16 sm:pt-20 lg:pt-12">
+            <div className="grid w-full gap-6 md:gap-8 items-center lg:grid-cols-[1.2fr_0.8fr] pt-16 lg:pt-0">
+              <div className="flex flex-col gap-6 pt-4 md:pt-16 sm:pt-20 lg:pt-12">
                 <SectionHeading
                   eyref="about"
                   eybar="About Me"
@@ -634,7 +634,7 @@ export default function DigitalResume() {
                   {/* Spotlight shadow rings */}
                   <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-sky-500/20 to-purple-500/20 blur-xl -z-10 scale-105" />
                   
-                  <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full border border-zinc-800 p-2 bg-zinc-950/90 shadow-2xl flex items-center justify-center">
+                  <div className="w-40 h-40 sm:w-56 sm:h-56 rounded-full border border-zinc-800 p-2 bg-zinc-950/90 shadow-2xl flex items-center justify-center">
                     <div className="w-full h-full rounded-full overflow-hidden border border-zinc-800">
                       <img 
                         src={profileImageSrc} 
@@ -642,11 +642,12 @@ export default function DigitalResume() {
                         className="w-full h-full object-cover grayscale contrast-[1.1] hover:grayscale-0 transition-all duration-700"
                         onError={(e) => {
                           e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling.style.display = 'flex';
+                          const fallback = e.currentTarget.parentElement?.querySelector('[data-about-fallback]');
+                          if (fallback) fallback.style.display = 'flex';
                         }}
                       />
-                      <div className="hidden w-full h-full items-center justify-center bg-zinc-900 text-zinc-500">
-                        <UserRound className="h-16 w-16" />
+                      <div data-about-fallback className="hidden w-full h-full items-center justify-center bg-zinc-900 text-zinc-500">
+                        <UserRound className="h-12 w-12 sm:h-16 sm:w-16" />
                       </div>
                     </div>
                   </div>
@@ -661,7 +662,7 @@ export default function DigitalResume() {
               </div>
 
               {/* Stats Widgets */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-6 w-full col-span-full">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mt-4 md:mt-6 w-full col-span-full">
                 {[
                   { title: 'PROJECTS', count: projectCount, icon: Code2, href: '#portfolio' },
                   { title: 'CERTIFICATES', count: 4, icon: Award, href: '#portfolio' },
@@ -670,7 +671,7 @@ export default function DigitalResume() {
                   <a
                     key={stat.title}
                     href={stat.href}
-                    className="flex items-center justify-between rounded-2xl border border-zinc-800/80 bg-zinc-950/60 p-4 hover:border-zinc-700 hover:bg-zinc-900/20 transition-all duration-300 cursor-pointer shadow-md group"
+                    className="flex items-center justify-between rounded-2xl border border-zinc-800/80 bg-zinc-950/60 p-3.5 md:p-4 hover:border-zinc-700 hover:bg-zinc-900/20 transition-all duration-300 cursor-pointer shadow-md group"
                   >
                     <div className="flex items-center gap-3">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-zinc-800 bg-zinc-900/50 text-zinc-400 group-hover:text-white transition-colors">
@@ -692,9 +693,9 @@ export default function DigitalResume() {
           {/* PORTFOLIO SECTION */}
           <section 
             id="portfolio" 
-            className="h-screen w-full flex flex-col justify-center py-24 snap-start snap-always relative"
+            className="min-h-screen md:h-screen md:h-[100dvh] w-full flex flex-col justify-center py-16 md:py-24 md:snap-start md:snap-always relative"
           >
-            <div className="text-center max-w-xl mx-auto mb-8">
+            <div className="text-center max-w-xl mx-auto mb-6 md:mb-8 pt-16 md:pt-0">
               <h2 className="text-3xl font-black tracking-tight text-white sm:text-4xl uppercase">
                 Portfolio Showcase
               </h2>
@@ -727,7 +728,7 @@ export default function DigitalResume() {
             </div>
 
             {/* Tab Panels with internal scroll constraint to guarantee single page budget */}
-            <div className="max-h-[50vh] overflow-y-auto pr-1 flex flex-col">
+            <div className="md:max-h-[50vh] md:overflow-y-auto pr-1 flex flex-col">
               
               {/* PROJECTS TAB */}
               {activeTab === 'projects' && (
@@ -846,9 +847,9 @@ export default function DigitalResume() {
           {/* CONTACT SECTION */}
           <section 
             id="contact" 
-            className="h-screen w-full flex flex-col justify-center py-24 snap-start snap-always relative"
+            className="min-h-screen md:h-screen md:h-[100dvh] w-full flex flex-col justify-center py-16 md:py-24 md:snap-start md:snap-always relative"
           >
-            <div className="text-center max-w-xl mx-auto mb-8">
+            <div className="text-center max-w-xl mx-auto mb-6 md:mb-8 pt-16 md:pt-0">
               <SectionHeading
                 eyebrow="Contact"
                 title="Let’s Connect"
@@ -885,7 +886,7 @@ export default function DigitalResume() {
             </div>
 
             {/* Quick footer card */}
-            <div className="mt-10 max-w-xl mx-auto w-full rounded-2xl border border-zinc-800 bg-zinc-950/20 p-4 text-center shadow-inner">
+            <div className="mt-6 md:mt-10 max-w-xl mx-auto w-full rounded-2xl border border-zinc-800 bg-zinc-950/20 p-4 text-center shadow-inner">
               <p className="text-[10px] uppercase tracking-[0.25em] text-zinc-500 font-bold font-mono">Location & Information</p>
               <p className="mt-2 text-xs leading-relaxed text-zinc-400">
                 Cebu, Philippines · IT Student / Developer · CIT University
